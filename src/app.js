@@ -62,11 +62,15 @@ function handleSubmit(event) {
 function changeToFahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   temperature.innerHTML = Math.round(celsiusTemperature * 1.8 + 32);
 }
 function changeToCelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   temperature.innerHTML = Math.round(celsiusTemperature);
 }
 

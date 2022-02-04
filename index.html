@@ -19,14 +19,12 @@
     </form>
     <div class="row">
         <div class="col-6">
-    <h1 id="city"></h1>
-    <h3 id="date"></h3>
-    </div>
-     <div class="col-6">
     <img id="weather-icon" src="" alt="">     
     <h2>
         <span id="temperature"></span> 
-        <a href="#" id="celsius-temperature">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
+        <span class="units">
+        <a href="#" id="celsius-temperature" class="active">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
+        </span>
     </h2>
     <ul>
         <li id="description">Clear sky</li>
@@ -34,9 +32,14 @@
         <li>Wind: <span id="wind">21</span> km/h</li>
     </ul>
     </div>
+     <div class="col-6">
+         <h1 id="city"></h1>
+    <h3 id="date"></h3>
+    
     </div>
     </div>
-    <small><a href="#" target="_blank">Open-source</a> by Gabriela Krestanova</small>
+    </div>
+    <small><a href="https://github.com/gabrielakrestanova/final-weatherapp-project" target="_blank">Open-source</a> by Gabriela Krestanova</small>
     </div>
     <script src=src/app.js></script>
   </body>

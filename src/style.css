@@ -1,26 +1,31 @@
 body {
   font-family: arial, sans-serif;
+  background-color: rgba(240, 207, 235, 0.2);
 }
 
 h1 {
   color: #6eaff7;
-  font-size: 40px;
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: right;
 }
 
 h2 {
   display: inline;
   font-size: 40px;
-  text-align: right;
   margin: 0;
   padding: 0;
 }
 
 h3 {
   color: #9179ef;
-  font-size: 30px;
+  font-size: 26px;
+  text-align: right;
 }
 
 ul {
+  text-align: right;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,18 +34,24 @@ ul {
 li {
   color: #70757a;
   font-size: 16px;
-  text-align: right;
-  padding-right: 50px;
+  text-align: left;
+  padding-left: 30px;
 }
 
 li:first-letter {
   text-transform: capitalize;
 }
 
+a {
+  color: #6eaff7;
+  text-decoration: none;
+}
+
 input {
   border: 1px solid #9179ef;
   border-radius: 10px;
-  padding: 5px;
+  padding: 8px;
+  font-size: 12px;
 }
 
 .content {
@@ -53,10 +64,26 @@ input {
     rgb(220, 196, 252) 11.2%,
     rgb(150, 199, 253) 100.2%
   );
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .app {
   margin: 30px auto;
   padding: 0;
-  max-width: 600px;
+  max-width: 550px;
+}
+
+.units {
+  font-size: 18px;
+  position: relative;
+  top: -16px;
+}
+
+h2 .active {
+  color: black;
+  cursor: default;
+}
+
+h2 .active:hover {
+  text-decoration: none;
 }
