@@ -74,6 +74,32 @@ function changeToCelsius(event) {
   temperature.innerHTML = Math.round(celsiusTemperature);
 }
 
+// Forecast
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 daily-forecast">
+          <div class="forecast-day">${day}</div>
+          <img class="forecast-icon" src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png">
+          <div class="forecast-temperature">
+              <span class="forecast-temperature-max">24°</span> 
+              <span class="forecast-temperature-min">16°</span>
+          </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
 let celsiusTemperature = null;
 
 let submit = document.querySelector("#enter-city");
@@ -86,3 +112,4 @@ let celsiusLink = document.querySelector("#celsius-temperature");
 celsiusLink.addEventListener("click", changeToCelsius);
 
 search("New York");
+displayForecast();

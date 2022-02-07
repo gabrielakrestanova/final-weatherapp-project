@@ -99,3 +99,13 @@ h2 .active {
 h2 .active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  margin-top: 50px;
+  padding: 0;
+  text-align: center;
+}
+
+.daily-forecast {
+  padding: 0;
+}
