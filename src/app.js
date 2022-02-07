@@ -22,6 +22,38 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// Forecast
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 daily-forecast">
+          <div class="forecast-day">${day}</div>
+          <img class="forecast-icon" src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png">
+          <div class="forecast-temperature">
+              <span class="forecast-temperature-max">24°</span> 
+              <span class="forecast-temperature-min">16°</span>
+          </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "cf74cb383f57c3a59e8730c4319ab78d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
@@ -43,6 +75,8 @@ function displayTemperature(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -72,32 +106,6 @@ function changeToCelsius(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   temperature.innerHTML = Math.round(celsiusTemperature);
-}
-
-// Forecast
-
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
-
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-
-  let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="col-2 daily-forecast">
-          <div class="forecast-day">${day}</div>
-          <img class="forecast-icon" src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png">
-          <div class="forecast-temperature">
-              <span class="forecast-temperature-max">24°</span> 
-              <span class="forecast-temperature-min">16°</span>
-          </div>
-      </div>`;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-
-  forecast.innerHTML = forecastHTML;
 }
 
 let celsiusTemperature = null;
