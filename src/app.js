@@ -33,7 +33,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecast = document.querySelector("#forecast");
 
   let dailyForecast = response.data.daily;
@@ -125,6 +124,25 @@ function changeToCelsius(event) {
   temperature.innerHTML = Math.round(celsiusTemperature);
 }
 
+// Geolocation
+
+function showLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+
+  let apiKey = "cf74cb383f57c3a59e8730c4319ab78d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(showLocation);
+}
+
+let geolocationButton = document.querySelector("#geolocation-button");
+geolocationButton.addEventListener("click", getLocation);
+
 let celsiusTemperature = null;
 
 let submit = document.querySelector("#enter-city");
@@ -136,4 +154,4 @@ fahrenheitLink.addEventListener("click", changeToFahrenheit);
 let celsiusLink = document.querySelector("#celsius-temperature");
 celsiusLink.addEventListener("click", changeToCelsius);
 
-search("New York");
+search("Prague");

@@ -7,7 +7,8 @@ h1 {
   color: #6eaff7;
   font-size: 38px;
   margin: 0;
-  text-align: right;
+  margin-top: 30px;
+  text-align: center;
 }
 
 h2 {
@@ -20,7 +21,7 @@ h2 {
 h3 {
   color: #9179ef;
   font-size: 20px;
-  text-align: right;
+  text-align: center;
 }
 
 ul {
@@ -69,7 +70,7 @@ input {
 .app {
   margin: 30px auto;
   padding: 0;
-  max-width: 550px;
+  max-width: 600px;
 }
 
 .submit-button {
@@ -81,6 +82,27 @@ input {
 }
 
 .submit-button:hover {
+  background: rgb(220, 196, 252, 0.4);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-element {
+  text-align: right;
+}
+
+.geolocation-button {
+  border: 1px solid #9179ef;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 12px;
+  background: linear-gradient(
+    109.6deg,
+    rgb(150, 199, 253, 0.6) 140.2%,
+    rgb(220, 196, 252) 15.2%
+  );
+}
+
+.geolocation-button:hover {
   background: rgb(220, 196, 252, 0.4);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
