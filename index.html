@@ -21,14 +21,16 @@
 
 <div class="row">
 
-<div class="col-6">
+<div class="col-5">
     <form id="enter-city">
         <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off">
         <input type="submit" value="Search" class="submit-button">
     </form>
     </div>
-    <div class="col-6 button-element">
-
+    <div class="col-3 time">
+    <h5>your timezone: </h5><h4 id="date">10:00</h4>
+    </div>
+    <div class="col-4 button-element">
     <button class="geolocation-button" id="geolocation-button">📍 Current location</button>
     </div>
 </div>
@@ -50,8 +52,14 @@
     </div>
      <div class="col-6">
          <h1 id="city"></h1>
-    <h5>last updated: </h5><h3 id="date"></h3>
+    <h3 id="local-date"></h3>
     
+        <div class="sunset-sunrise"> 
+            <img class="sunrise-icon" src="icons/sunrise.png" alt="sunrise" width="10px"> <span id="sunrise">06:00</span>
+            <img class="sunset-icon" src="icons/sunset.png" alt="sunset"> 
+            <span id="sunset">18:00</span>
+        </div>
+    </ul>
     </div>
     </div>
 

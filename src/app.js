@@ -1,3 +1,33 @@
+function formatSunrise(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
+function formatSunset(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function formatDate(timestamp) {
   let date = new Date();
   let days = [
@@ -9,7 +39,23 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
+  let weekday = days[date.getDay()];
+  let day = date.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -19,7 +65,47 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
+}
+
+function formatTimezoneDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let weekday = days[date.getDay()];
+  let day = date.getDate();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${weekday}, ${day}.${month} ${hours}:${minutes}`;
 }
 
 // Forecast
@@ -33,6 +119,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response.data);
   let forecast = document.querySelector("#forecast");
 
   let dailyForecast = response.data.daily;
@@ -62,6 +149,19 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
 
   forecast.innerHTML = forecastHTML;
+
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.current.dt * 1000
+  );
+  document.querySelector("#local-date").innerHTML = formatTimezoneDate(
+    response.data.current.dt + response.data.timezone_offset - 3600
+  );
+  document.querySelector("#sunrise").innerHTML = formatSunrise(
+    response.data.current.sunrise + response.data.timezone_offset - 3600
+  );
+  document.querySelector("#sunset").innerHTML = formatSunset(
+    response.data.current.sunset + response.data.timezone_offset - 3600
+  );
 }
 
 function getForecast(coordinates) {
@@ -82,9 +182,7 @@ function displayTemperature(response) {
     response.data.wind.speed
   );
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#date").innerHTML = formatDate(
-    response.data.dt * 1000
-  );
+
   document
     .querySelector("#weather-icon")
     .setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
