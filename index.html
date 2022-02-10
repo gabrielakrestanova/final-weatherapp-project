@@ -19,57 +19,54 @@
     <div class="container app">
     <div class="content">
 
-<div class="row">
+        <div class="row">
+            <div class="col-6">
+                <img id="weather-icon" src="" alt="" width="100px">     
+                 <h2>
+                     <span id="temperature"></span> 
+                     <span class="units">
+                     <a href="#" id="celsius-temperature" class="active">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
+                     </span>
+                </h2>
 
-<div class="col-5">
-    <form id="enter-city">
-        <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off">
-        <input type="submit" value="Search" class="submit-button">
-    </form>
-    </div>
-    <div class="col-3 time">
-    <h5>your timezone: </h5><h4 id="date">10:00</h4>
-    </div>
-    <div class="col-4 button-element">
-    <button class="geolocation-button" id="geolocation-button">📍 Current location</button>
-    </div>
-</div>
-
-    <div class="row">
-        <div class="col-6">
-    <img id="weather-icon" src="" alt="" width="100px">     
-    <h2>
-        <span id="temperature"></span> 
-        <span class="units">
-        <a href="#" id="celsius-temperature" class="active">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
-        </span>
-    </h2>
-    </div>
+            </div>
+            <div class="col-6 search-form">
+                <span class="button-element">
+                     <button class="geolocation-button" id="geolocation-button">
+                    📍</button>
+                </span>
+                 <form id="enter-city" class="search-form">
+                     <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off">
+                     <input type="submit" value="Search" class="submit-button">
+                </form>
     
-    <div class="col-6">
+                 <div class="time">
+                     <h5>your timezone: </h5><h4 id="date"></h4>
+                 </div>
+            </div>
+        </div>
+
+   
+        
+    <div class="row">
+        <div class="col-12">
+    
          <h1 id="city"></h1>
-    <h3 id="local-date"></h3>
-    </div>
-    </div>
+         <h3 id="local-date"></h3>
     
-    
-    <div class="row">
-        <div class="col-6">
     <ul>
         <li id="description">Clear sky</li>
         <li>Humidity: <span id="humidity">77</span>%</li>
         <li>Wind: <span id="wind">21</span> km/h</li>
     </ul>
-    </div>
-     <div class="col-6">
-         
-    
-        <div class="sunset-sunrise"> 
+        
+     
+          <div class="sunset-sunrise"> 
             <img class="sunrise-icon" src="icons/sunrise.png" alt="sunrise" width="10px"> <span id="sunrise">06:00</span>
             <img class="sunset-icon" src="icons/sunset.png" alt="sunset"> 
             <span id="sunset">18:00</span>
         </div>
-    </ul>
+
     </div>
     </div>
 
