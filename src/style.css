@@ -181,7 +181,6 @@ h2 .active:hover {
 .sunset-icon {
   display: inline;
   width: 35px;
-  margin-left: 20px;
   padding-left: 0;
 }
 
@@ -193,4 +192,13 @@ h2 .active:hover {
 .currenttemperature {
   text-align: center;
   margin-top: 20px;
+}
+
+#city-input {
+  min-width: none;
+  max-width: 150px;
+}
+
+#sunrise {
+  margin-right: 10px;
 }
