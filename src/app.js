@@ -119,7 +119,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
   let forecast = document.querySelector("#forecast");
 
   let dailyForecast = response.data.daily;
@@ -204,21 +203,6 @@ function handleSubmit(event) {
   search(cityInput.value);
 }
 
-function changeToFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  temperature.innerHTML = Math.round(celsiusTemperature * 1.8 + 32);
-}
-function changeToCelsius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperature.innerHTML = Math.round(celsiusTemperature);
-}
-
 // Geolocation
 
 function showLocation(position) {
@@ -238,15 +222,7 @@ function getLocation() {
 let geolocationButton = document.querySelector("#geolocation-button");
 geolocationButton.addEventListener("click", getLocation);
 
-let celsiusTemperature = null;
-
 let submit = document.querySelector("#enter-city");
 submit.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-temperature");
-fahrenheitLink.addEventListener("click", changeToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-temperature");
-celsiusLink.addEventListener("click", changeToCelsius);
 
 search("Prague");

@@ -143,15 +143,7 @@ img {
   font-size: 18px;
   position: relative;
   top: -16px;
-}
-
-h2 .active {
   color: black;
-  cursor: default;
-}
-
-h2 .active:hover {
-  text-decoration: none;
 }
 
 .weather-forecast {
@@ -162,6 +154,10 @@ h2 .active:hover {
 
 .daily-forecast {
   padding: 0;
+}
+
+#weather-icon {
+  margin-right: 10px;
 }
 
 .sunset-sunrise {
