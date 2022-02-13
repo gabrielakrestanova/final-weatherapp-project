@@ -20,70 +20,55 @@
     <div class="content">
 
         <div class="row">
-            <div class="col-6">
-
+        <div class="col-6">
+           <h1 id="city"></h1>
+            <h3 id="local-date"></h3>
     
-    
-         <h1 id="city"></h1>
-         <h3 id="local-date"></h3>
-    
-    <ul>
-        <li id="description">Clear sky</li>
-        <li>Humidity: <span id="humidity">77</span>%</li>
-        <li>Wind: <span id="wind">21</span> km/h</li>
-    </ul>
+            <ul>
+                 <li id="description">Clear sky</li>
+                 <li>Humidity: <span id="humidity">77</span>%</li>
+                 <li>Wind: <span id="wind">21</span> km/h</li>
+            </ul>
         
      
-          <div class="sunset-sunrise"> 
-            <img class="sunrise-icon" src="icons/sunrise.png" alt="sunrise" width="10px"> <span id="sunrise"></span>
-            <img class="sunset-icon" src="icons/sunset.png" alt="sunset"> 
-            <span id="sunset"></span>
-        </div>
-
-    </div>
-
-                
-
-            
-            <div class="col-6 search-form">
-                <span class="button-element">
-                     <button class="geolocation-button" id="geolocation-button">📍</button>
-                </span>
-                 <form id="enter-city" class="search-form">
-                     <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off">
-                     <input type="submit" value="Search" class="submit-button">
-                </form>
-    
-                 <div class="time">
-                     <h5>your timezone: </h5><h4 id="date"></h4>
-                 </div>
-
-                <div class="currenttemperature">
-                 <img id="weather-icon" src="" alt="" width="100px">     
-                 <h2>
-                     <span id="temperature"></span> 
-                     <span class="units">
-                     <a href="#" id="celsius-temperature" class="active">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
-                     </span>
-                </h2>
-                </div>
-
+            <div class="sunset-sunrise"> 
+                <img class="sunrise-icon" src="icons/sunrise.png" alt="sunrise"> <span id="sunrise"></span>
+                <img class="sunset-icon" src="icons/sunset.png" alt="sunset"> <span id="sunset"></span>
             </div>
-        </div>
+         </div>
 
-   
-        
-    <div class="row">
-        <div class=col-12>
-        </div>
+        <div class="col-6 search-form">
+            <span class="button-element">
+            <button class="geolocation-button" id="geolocation-button">📍</button>
+            </span>
+            <form id="enter-city" class="search-form">
+                <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off">
+                <input type="submit" value="Search" class="submit-button">
+            </form>
     
+            <div class="time">
+                <h5>your timezone: </h5><h4 id="date"></h4>
+            </div>
+
+            <div class="currenttemperature">
+            <img id="weather-icon" src="" alt="" width="100px">     
+            <h2>
+                <span id="temperature"></span> 
+                <span class="units">
+                <a href="#" id="celsius-temperature" class="active">°C</a>|<a href="#" id="fahrenheit-temperature">°F</a> 
+                </span>
+            </h2>
+            </div>
+
+        </div>
+        </div>
     
         <div class="weather-forecast" id="forecast">
    
-    </div>
+        </div>
 
     </div>
-    </div>
+    
     <small><a href="https://github.com/gabrielakrestanova/final-weatherapp-project" target="_blank">Open-source</a> by Gabriela Krestanova, hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a></small>
     </div>
     <script src=src/app.js></script>
